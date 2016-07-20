@@ -24,6 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.Preferences;
 
 /**
  * Implements a simple
@@ -43,15 +44,17 @@ public class Database {
     private static final String server = "soa-sut-db.dei.uc.pt";
     private static final int port = 1521;
     private static final String sid = "orcl";
-    private static final String userName = "wsdbench";
-    private static final String passwd = "Samsung";
     private static final String driverName = "oracle.jdbc.driver.OracleDriver";
     private static final String url = "jdbc:oracle:thin:@" + server + ":" + port + ":" + sid;
     //
     private final static BlockingQueue<Connection> pooll;
     private final static ConcurrentHashMap<Connection, AtomicInteger> usage;
+    private final static Preferences preferences = Preferences.userNodeForPackage(Database.class);
+    private static final String userName = preferences.get("db_username", null);
+    private static final String passwd = preferences.get("db_password", null);
 
     static {
+
         logger.info("Setting UP Database ");
         pooll = new ArrayBlockingQueue<Connection>(DATABASE_CONNECTION_POOL_SIZE + 10);
         usage = new ConcurrentHashMap<Connection, AtomicInteger>(DATABASE_CONNECTION_POOL_SIZE + 10);
