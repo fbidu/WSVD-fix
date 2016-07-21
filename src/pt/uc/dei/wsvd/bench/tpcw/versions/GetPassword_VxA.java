@@ -15,6 +15,7 @@ import pt.uc.dei.wsvd.bench.Database;
  */
 public class GetPassword_VxA {
 
+    // Narcisio's Bug
     public String getPassword(String C_UNAME) {
         String passwd = null;
         Connection con = Database.pickConnection();
