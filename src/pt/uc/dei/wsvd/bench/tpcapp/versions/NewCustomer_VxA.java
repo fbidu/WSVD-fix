@@ -1,9 +1,6 @@
 package pt.uc.dei.wsvd.bench.tpcapp.versions;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Random;
 import pt.uc.dei.wsvd.bench.Database;
 import pt.uc.dei.wsvd.bench.tpcapp.external.LongWrapper;
@@ -115,27 +112,31 @@ public class NewCustomer_VxA {
     private synchronized long createAddress(Connection conn, NewCustomerInput input)
             throws SQLException {
         long addr_id = -1;
-        String sql = "";
+
         long addr_co_id = getCOID(conn, input);
         Statement stmt = Database.createStatement(conn);
         if (addr_co_id != -1) {
-            sql = "select max(addr_id) from address";
+            String sql = "select max(addr_id) from address";
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next()) {
                 addr_id = rs.getLong(1);
             }
             addr_id++;
-            sql = "INSERT INTO ADDRESS( ADDR_ID, ADDR_STREET1, ADDR_STREET2, ADDR_CITY, "
-                    + "ADDR_STATE, ADDR_ZIP, ADDR_CO_ID)"
-                    + " VALUES( " + addr_id + ", '"
-                    + input.getBillingAddr1() + "', '"
-                    + input.getBillingAddr2() + "', '"
-                    + input.getBillingCity() + "', '"
-                    + input.getBillingState() + "', '"
-                    + input.getBillingZip() + "', "
-                    + addr_co_id + ")";
-            //
-            stmt.executeUpdate(sql);
+            PreparedStatement sqlStmt = conn.prepareStatement(
+                    "INSERT INTO ADDRESS( ADDR_ID, ADDR_STREET1, ADDR_STREET2, ADDR_CITY, "
+                            + "ADDR_STATE, ADDR_ZIP, ADDR_CO_ID)"
+                            + " VALUES( ?, ?, ?, ?, ?, ?, ? "
+            );
+
+            sqlStmt.setLong(1, addr_id);
+            sqlStmt.setString(2, input.getBillingAddr1());
+            sqlStmt.setString(3, input.getBillingAddr2());
+            sqlStmt.setString(4, input.getBillingCity());
+            sqlStmt.setString(5, input.getBillingState());
+            sqlStmt.setString(6, input.getBillingZip());
+            sqlStmt.setLong(7, addr_co_id);
+            sqlStmt.executeUpdate();
+
             if (rs != null) {
                 rs.close();
             }
