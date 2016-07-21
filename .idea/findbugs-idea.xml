@@ -16,8 +16,8 @@
       <category name="STYLE" />
     </hiddenBugCategory>
     <plugins>
-      <plugin id="com.h3xstream.findsecbugs" enabled="true" bundled="true" />
-      <plugin id="com.mebigfatguy.fbcontrib" enabled="true" bundled="true" />
+      <plugin id="com.h3xstream.findsecbugs" bundled="true" />
+      <plugin id="com.mebigfatguy.fbcontrib" bundled="true" />
     </plugins>
     <detectors>
       <detector name="BadAppletConstructor" enabled="true" />
