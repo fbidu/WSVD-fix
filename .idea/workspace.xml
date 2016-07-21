@@ -34,7 +34,7 @@
       <file leaf-file-name="NewCustomer_VxA.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pt/uc/dei/wsvd/bench/tpcapp/versions/NewCustomer_VxA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
+            <state relative-caret-position="460">
               <caret line="125" column="15" selection-start-line="125" selection-start-column="15" selection-end-line="125" selection-end-column="15" />
               <folding>
                 <marker date="1469141186314" expanded="true" signature="3553:4067" ph="select addr_... address" />
@@ -804,12 +804,12 @@
       <workItem from="1469016952832" duration="1209000" />
       <workItem from="1469061753754" duration="2672000" />
       <workItem from="1469064598285" duration="1245000" />
-      <workItem from="1469136835247" duration="3916000" />
+      <workItem from="1469136835247" duration="3930000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14202000" />
+    <option name="totallyTimeSpent" value="14216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="714" extended-state="0" />
@@ -817,7 +817,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="FindBugs-IDEA" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="27" width="1366" height="714" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="27" width="1366" height="714" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1321,7 +1321,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pt/uc/dei/wsvd/bench/tpcapp/versions/NewCustomer_VxA.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
+        <state relative-caret-position="460">
           <caret line="125" column="15" selection-start-line="125" selection-start-column="15" selection-end-line="125" selection-end-column="15" />
           <folding>
             <marker date="1469141186314" expanded="true" signature="3553:4067" ph="select addr_... address" />
