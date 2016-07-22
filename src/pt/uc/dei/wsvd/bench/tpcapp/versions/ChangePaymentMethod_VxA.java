@@ -1,9 +1,7 @@
 package pt.uc.dei.wsvd.bench.tpcapp.versions;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+
 import pt.uc.dei.wsvd.bench.Database;
 import pt.uc.dei.wsvd.bench.tpcapp.external.LongWrapper;
 import pt.uc.dei.wsvd.bench.tpcapp.external.Pov;
@@ -67,16 +65,16 @@ public class ChangePaymentMethod_VxA {
     private synchronized String updateCPM(final Connection conn, final ChangePaymentMethodInput input)
             throws SQLException {
         String cpm = null;
-        String sql = "update customer SET"
-                + " C_PAYMENT_METHOD= '" + input.getPaymentMethod() + "',"
-                + " C_CREDIT_INFO= '" + input.getCreditInfo() + "',"
-                + " C_PO= " + input.getPoId()
-                + " where C_ID = " + input.getCustomerId();
-        Statement stat = Database.createStatement(conn);
-        //
-        //
-        stat.executeUpdate(sql);
-        stat.close();
+        PreparedStatement sql = conn.prepareStatement("update customer SET"
+                + " C_PAYMENT_METHOD= ?,"
+                + " C_CREDIT_INFO= ?,"
+                + " C_PO= ? "
+                + " where C_ID = ?");
+        sql.setString(1, input.getPaymentMethod());
+        sql.setString(2, input.getCreditInfo());
+        sql.setString(3, input.getPoId());
+        sql.setLong(4, input.getCustomerId());
+        sql.executeUpdate();
         cpm = input.getPaymentMethod();
         return (cpm);
     }
